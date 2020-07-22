@@ -26,7 +26,6 @@ Put something like the code below in `config/application.rb` of your Rails appli
 module YourApp
   class Application < Rails::Application
     # ...
-    
     # Rails 5
 
     config.middleware.insert_before 0, Rack::Cors do
@@ -103,7 +102,7 @@ Additionally, origins can be specified dynamically via a block of the following 
   origins { |source, env| true || false }
 ```
 
-A Resource path can be specified as exact string match (`/path/to/file.txt`) or with a '\*' wildcard (`/all/files/in/*`).  To include all of a directory's files and the files in its subdirectories, use this form: `/assets/**/*`.  A resource can take the following options:
+A Resource path can be specified as regular expression or exact string match (`/path/to/file.txt`), or with a '\*' wildcard (`/all/files/in/*`).  To include all of a directory's files and the files in its subdirectories, use this form: `/assets/**/*`.  A resource can take the following options:
 
 * **methods** (string or array or `:any`): The HTTP methods allowed for the resource.
 * **headers** (string or array or `:any`): The HTTP headers that will be allowed in the CORS resource request.  Use `:any` to allow for any headers in the actual request.
